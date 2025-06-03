@@ -61,4 +61,4 @@ jobs:
           app-name: 'app-step4-58'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F7FD6DDBC5004E3C90936C276EEC8162 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9A64624503F943F7B0BA08FC72DC22FF }}
