@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";  // ← ここを変更
 import "./globals.css";
 
-const geistSans = Geist({
+const geistSans = Inter({  // Geist → Inter に変更
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Roboto_Mono({  // Geist_Mono → Roboto_Mono に変更
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -32,3 +32,4 @@ export default function RootLayout({
     </html>
   );
 }
+
