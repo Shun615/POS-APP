@@ -30,9 +30,13 @@ jobs:
           npm run test --if-present
         working-directory: ./frontend   # frontendディレクトリ内で実行
 
+      - name: List files in frontend before zip
+        run: ls -la
+        working-directory: ./frontend
+
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./*   # frontendディレクトリ内の全てのファイルをzip化
-        working-directory: ./frontend  # frontendディレクトリ内でzip作成
+        run: zip -r release.zip ./*
+        working-directory: ./frontend
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
