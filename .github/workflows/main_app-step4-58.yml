@@ -39,7 +39,7 @@ jobs:
         working-directory: ./frontend
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./*
+        run: zip -r release.zip . -x "*.git*"
         working-directory: ./frontend
 
       - name: Show zip file contents
