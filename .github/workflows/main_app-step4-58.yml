@@ -28,10 +28,11 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: ./frontend   # ここを追加
+        working-directory: ./frontend   # frontendディレクトリ内で実行
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./frontend   # ここを修正
+        run: zip -r release.zip ./*   # frontendディレクトリ内の全てのファイルをzip化
+        working-directory: ./frontend  # frontendディレクトリ内でzip作成
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -61,5 +62,5 @@ jobs:
         with:
           app-name: 'app-step4-58'
           slot-name: 'Production'
-          package: './frontend'   # frontendフォルダを指定
+          package: '.'   # デプロイ時はルートディレクトリを指定（unzip後の場所）
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9A64624503F943F7B0BA08FC72DC22FF }}
